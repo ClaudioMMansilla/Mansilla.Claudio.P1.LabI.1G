@@ -1,0 +1,20 @@
+
+#ifndef CLIENTE_H_
+#define CLIENTE_H_
+
+typedef struct{
+
+	int id;
+	char nombre[20];
+	char sexo;
+
+}eCliente;
+
+
+#endif /* CLIENTE_H_ */
+
+int buscarCliente(eCliente clientes[], int tam, int id, int* pIndice);
+
+int validarCliente(eCliente vec[], int tam, int id);
+
+int cargarNombreCliente(eCliente vec[], int tam, int id, char descrip[]);

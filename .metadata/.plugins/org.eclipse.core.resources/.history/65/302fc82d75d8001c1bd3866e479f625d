@@ -1,0 +1,65 @@
+#include "hardcodear.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "Auto.h"
+#include "Trabajo.h"
+
+
+int hardcodearAutos(eAuto autos[], int tamA, int cantHard){
+    int control = 0;
+
+	eAuto hardAutos[10]= {
+		//      id,    marca,color,caja,isEmpty
+			{"AA420AR", 1000, 5002, 'm', 0},
+			{"LQR085", 1001, 5002, 'a', 0},
+			{"MYP499", 1002, 5002, 'm', 0},
+			{"KSX685", 1003, 5002, 'a', 0},
+			{"AE388AR", 1000, 5004, 'a', 0},
+			{"SZZ808", 1001, 5004, 'm', 0},
+			{"GHL150", 1002, 5004, 'a', 0},
+			{"AEA410", 1003, 5004, 'm', 0},
+			{"JPE773", 1004, 5004, 'm', 0},
+			{"QNA956", 1001, 5004, 'a', 0}
+	};
+
+    if( autos != NULL && tamA > 0 && tamA <= 10 && cantHard <= tamA)
+    {
+        for(int i=0; i < cantHard; i++)
+        {
+        	autos[i] = hardAutos[i];
+        }
+        control = 1;
+    }
+    return control;
+
+}
+
+
+int hardcodearTrabajos(eTrabajo trabajos[], int tamT, int cantHard, int* pNextId){
+    int control = 0;
+
+	eTrabajo hardTrabajos[8]= {
+		//  id,  idAuto , idServ,    fecha   , isEmpty
+			{0, "QNA956", 20000, {07,01,2022}, 0},
+			{0, "JPE773", 20001, {02,02,2022}, 0},
+			{0, "AEA410", 20002, {15,12,2021}, 0},
+			{0, "JPE773", 20001, {02,10,2021}, 0},
+			{0, "GHL150", 20002, {28,03,2022}, 0},
+			{0, "AEA410", 20001, {02,02,2021}, 0},
+			{0, "AEA410", 20002, {10,12,2021}, 0},
+			{0, "GHL150", 20003, {02,02,2022}, 0}
+	};
+
+    if( trabajos != NULL && pNextId != NULL && tamT > 0 && tamT <= 10 && cantHard <= tamT)
+    {
+        for(int i=0; i < cantHard; i++)
+        {
+        	trabajos[i] = hardTrabajos[i];
+        }
+        control = 1;
+    }
+    return control;
+
+}

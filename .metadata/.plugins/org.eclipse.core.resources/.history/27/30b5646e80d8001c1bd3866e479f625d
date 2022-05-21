@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "Cliente.h"
+
+
+int buscarCliente(eCliente clientes[], int tam, int id, int* pIndice){
+
+    int control = 0;
+    if( clientes != NULL && pIndice != NULL && tam > 0 )
+    {
+        *pIndice = -1;
+        for(int i=0; i < tam; i++)
+        {
+            if(clientes[i].id == id)
+            {
+                *pIndice = i;
+                break;
+            }
+        }
+        control = 1;
+    }
+    return control;
+}
+
+
+int validarCliente(eCliente vec[], int tam, int id){
+	int validacion = 0;
+	int indice;
+
+	if (buscarCliente(vec, tam, id, &indice) ){
+		if(indice != -1){
+			validacion = 1;
+		}
+	}
+	return validacion;
+}
+
+
+int cargarNombreCliente(eCliente vec[], int tam, int id, char descrip[]){
+
+    int control = 0;
+    if(vec != NULL && tam > 0 && descrip != NULL){
+
+         for(int i= 0; i < tam; i++){
+
+            if( vec[i].id == id){
+                strcpy( descrip, vec[i].nombre);
+                control = 1;
+                break;
+            }
+         }
+    }
+    return control;
+}
